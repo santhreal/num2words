@@ -42,8 +42,8 @@ class Num2Word_ID():
                30: "noniliun",
                33: "desiliun"}
 
-    errmsg_floatord = "Cannot treat float number as ordinal"
-    errmsg_negord = "Cannot treat negative number as ordinal"
+    errmsg_floatord = "Cannot treat float number %s as ordinal"
+    errmsg_negord = "Cannot treat negative number %s as ordinal"
     errmsg_toobig = "Number is too large to convert to words (abs(%s) > %s)."
     MAXVAL = 10 ** 36
 

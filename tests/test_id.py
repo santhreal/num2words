@@ -56,7 +56,13 @@ class Num2WordsIDTest(TestCase):
         self.assertEqual(num2words(10, ordinal=True, lang='id'), "kesepuluh")
 
     def test_ordinal_for_negative_number(self):
-        self.assertRaises(TypeError, num2words, -12, ordinal=True, lang='id')
+        with self.assertRaises(TypeError) as ctx:
+            num2words(-12, ordinal=True, lang='id')
+        self.assertIn('-12', str(ctx.exception))
+        self.assertIn('ordinal', str(ctx.exception).lower())
 
     def test_ordinal_for_floating_number(self):
-        self.assertRaises(TypeError, num2words, 3.243, ordinal=True, lang='id')
+        with self.assertRaises(TypeError) as ctx:
+            num2words(3.243, ordinal=True, lang='id')
+        self.assertIn('3.243', str(ctx.exception))
+        self.assertIn('ordinal', str(ctx.exception).lower())
