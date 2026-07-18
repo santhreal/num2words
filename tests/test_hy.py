@@ -144,6 +144,12 @@ class Num2WordsHYTest(TestCase):
             num2words(1000000, lang="hy", to="ordinal"), "մեկ միլիոներորդ"
         )
 
+
+    def test_ordinal_negative(self):
+        with self.assertRaises(TypeError) as ctx:
+            num2words(-1, lang="hy", to="ordinal")
+        self.assertIn("-1", str(ctx.exception))
+
     def test_ordinal_with_suffix(self):
         """Test ordinal number with suffix conversion."""
         self.assertEqual(num2words(1, lang="hy", to="ordinal_num"), "1-րդ")

@@ -214,6 +214,8 @@ CURRENCIES_FEM = ["GBP"]
 
 
 class Num2Word_CY(Num2Word_EU):
+    errmsg_floatord = "Cannot treat float %s as ordinal."
+    errmsg_negord = "Cannot treat negative num %s as ordinal."
     CURRENCY_FORMS = {
         # currency code: (sg, pl), (sg, pl)
         # in Welsh a noun after a numeral is ALWAYS in the singular
@@ -343,6 +345,7 @@ class Num2Word_CY(Num2Word_EU):
         return result
 
     def to_ordinal(self, number, informal=False, gender="masc"):
+        self.verify_ordinal(number)
         if number < 20:
             return makestring(ORDINAL_WORDS[number])
         if number == 100:

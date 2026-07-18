@@ -223,6 +223,7 @@ class Num2Word_HY(Num2Word_Base):
         return result
 
     def to_ordinal(self, value):
+        self.verify_ordinal(value)
         if value == 0:
             return 'զրոերորդ'
 
