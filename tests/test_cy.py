@@ -472,10 +472,9 @@ class Num2WordsCYTest(TestCase):
                 test[3],
             )
 
-# TODO 'ordinal_num', 'year'
-
     def test_ordinal_negative(self):
         with self.assertRaises(TypeError) as ctx:
             num2words(-1, lang="cy", to="ordinal")
         self.assertIn("-1", str(ctx.exception))
 
+# TODO 'ordinal_num', 'year'
